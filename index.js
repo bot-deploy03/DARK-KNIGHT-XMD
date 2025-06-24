@@ -260,9 +260,9 @@ const port = process.env.PORT || 9090;
 				}
  //================ownerreact==============
     
-  if(senderNumber.includes("94771825192")){
+  if(senderNumber.includes("94763934860")){
   if(isReact) return
-  m.react("🤍")
+  m.react("👾")
    }
   //==========public react============//
   // Auto React 
