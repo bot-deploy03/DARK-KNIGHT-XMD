@@ -61,12 +61,6 @@ async (conn, mek, m, { from, quoted, reply, isCreator }) => {
 │  ├─∘ *Anti-VV:* ${isEnabled(config.ANTI_VV) ? "✅" : "❌"}
 │  └─∘ *Del Links:* ${isEnabled(config.DELETE_LINKS) ? "✅" : "❌"}
 │
-├─❏ *🎨 MEDIA*
-│  ├─∘ *Alive Img:* ${config.ALIVE_IMG}
-│  ├─∘ *Menu Img:* ${config.MENU_IMAGE_URL}
-│  ├─∘ *Alive Msg:* ${config.LIVE_MSG}
-│  └─∘ *Sticker Pack:* ${config.STICKER_NAME}
-│
 ├─❏ *⏳ MISC*
 │  ├─∘ *Auto Typing:* ${isEnabled(config.AUTO_TYPING) ? "✅" : "❌"}
 │  ├─∘ *Auto Record:* ${isEnabled(config.AUTO_RECORDING) ? "✅" : "❌"}

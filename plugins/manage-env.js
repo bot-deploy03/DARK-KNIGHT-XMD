@@ -11,6 +11,7 @@ const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, sleep, fetchJson
 const { writeFileSync } = require('fs');
 const path = require('path');
 
+
 cmd({
     pattern: "admin-events",
     alias: ["adminevents"],
@@ -32,6 +33,7 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
         return reply(`Example: .admin-events on`);
     }
 });
+
 
 cmd({
     pattern: "welcome",
@@ -55,6 +57,7 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
     }
 });
 
+
 cmd({
     pattern: "setprefix",
     alias: ["prefix"],
@@ -73,6 +76,7 @@ cmd({
 
     return reply(`✅ Prefix successfully changed to *${newPrefix}*`);
 });
+
 
 cmd({
     pattern: "mode",
@@ -102,6 +106,7 @@ cmd({
     }
 });
 
+
 cmd({
     pattern: "auto-typing",
     description: "Enable or disable auto-typing feature.",
@@ -121,7 +126,6 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
 });
 
 //mention reply 
-
 
 cmd({
     pattern: "mention-reply",
@@ -146,10 +150,10 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
     }
 });
 
-
 //--------------------------------------------
 // ALWAYS_ONLINE COMMANDS
 //--------------------------------------------
+
 cmd({
     pattern: "always-online",
     alias: ["alwaysonline"],
@@ -175,6 +179,7 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
 //--------------------------------------------
 //  AUTO_RECORDING COMMANDS
 //--------------------------------------------
+
 cmd({
     pattern: "auto-recording",
     alias: ["autorecoding"],
@@ -199,9 +204,11 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
         return reply("Auto recording has been disabled.");
     }
 });
+
 //--------------------------------------------
 // AUTO_VIEW_STATUS COMMANDS
 //--------------------------------------------
+
 cmd({
     pattern: "auto-seen",
     alias: ["autostatusview"],
@@ -224,9 +231,11 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
         return reply(`*🫟 ᴇxᴀᴍᴘʟᴇ:  .ᴀᴜᴛᴏ-sᴇᴇɴ ᴏɴ*`);
     }
 }); 
+
 //--------------------------------------------
 // AUTO_LIKE_STATUS COMMANDS
 //--------------------------------------------
+
 cmd({
     pattern: "status-react",
     alias: ["statusreaction"],
@@ -253,6 +262,7 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
 //--------------------------------------------
 //  READ-MESSAGE COMMANDS
 //--------------------------------------------
+
 cmd({
     pattern: "read-message",
     alias: ["autoread"],
@@ -301,10 +311,10 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
     }
 });
 
-
 //--------------------------------------------
 //  ANI-BAD COMMANDS
 //--------------------------------------------
+
 cmd({
     pattern: "anti-bad",
     alias: ["antibadword"],
@@ -327,9 +337,11 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
         return reply(`_example:  .antibad on_`);
     }
 });
+
 //--------------------------------------------
 //  AUTO-STICKER COMMANDS
 //--------------------------------------------
+
 cmd({
     pattern: "auto-sticker",
     alias: ["autosticker"],
@@ -352,9 +364,11 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
         return reply(`_example:  .auto-sticker on_`);
     }
 });
+
 //--------------------------------------------
 //  AUTO-REPLY COMMANDS
 //--------------------------------------------
+
 cmd({
     pattern: "auto-reply",
     alias: ["autoreply"],
@@ -381,6 +395,7 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
 //--------------------------------------------
 //   AUTO-REACT COMMANDS
 //--------------------------------------------
+
 cmd({
     pattern: "auto-react",
     alias: ["autoreact"],
@@ -403,9 +418,11 @@ async (conn, mek, m, { from, args, isCreator, reply }) => {
         await reply(`*🫟 ᴇxᴀᴍᴘʟᴇ: .ᴀᴜᴛᴏ-ʀᴇᴀᴄᴛ ᴏɴ*`);
     }
 });
+
 //--------------------------------------------
 //  STATUS-REPLY COMMANDS
 //--------------------------------------------
+
 cmd({
     pattern: "status-reply",
     alias: ["autostatusreply"],
@@ -460,6 +477,7 @@ cmd({
   }
 });
 
+
 cmd({
   pattern: "antilinkkick",
   alias: ["kicklink"],
@@ -513,4 +531,49 @@ cmd({
   } catch (e) {
     reply(`Error: ${e.message}`);
   }
+});
+
+
+cmd({
+    pattern: "heartreact",
+    react: "💖",
+    alias: ["heart"],
+    desc: "Enable or disable heart react.",
+    category: "settings",
+    filename: __filename,
+}, async (conn, mek, m, { from, args, isOwner, reply }) => {
+    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+
+    const option = args[0]?.toLowerCase();
+    
+    if (option === "on" || option === "true") {
+        config.HEART_REACT = "true"; // Set to "true" for enabling
+        return reply("❤️ Heart react is now enabled.");
+    } else if (option === "off" || option === "false") {
+        config.HEART_REACT = "false"; // Set to "false" for disabling
+        return reply("💔 Heart react is now disabled.");
+    } else {
+        return reply("*🔥 Example: .heartreact on* or *[.heartreact off]*");
+    }
+});
+
+
+cmd({
+    pattern: "antibot",
+    alias: ["antibot"],
+    desc: "Enable Antibot and set action (off/warn/delete/kick)",
+    category: "group",
+    filename: __filename
+}, async (conn, mek, m, { q, reply }) => {
+    if (!q) {
+        return reply(`*Current Antibot Action:* ${antibotAction.toUpperCase()}\n\nUse *antibot off/warn/delete/kick* to change it.`);
+    }
+
+    const action = q.toLowerCase();
+    if (["off", "warn", "delete", "kick"].includes(action)) {
+        antibotAction = action;
+        return reply(`*Antibot action set to:* ${action.toUpperCase()}`);
+    } else {
+        return reply("*🫟 ᴇxᴀᴍᴘʟᴇ: . ᴀɴᴛɪʙᴏᴛ ᴏғғ/ᴡᴀʀɴ/ᴅᴇʟᴇᴛᴇ/ᴋɪᴄᴋ*");
+    }
 });
