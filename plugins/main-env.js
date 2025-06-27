@@ -9,8 +9,8 @@ function isEnabled(value) {
 }
 
 cmd({
-    pattern: "env",
-    alias: ["config", "settings"],
+    pattern: "setting",
+    alias: ["setting"],
     desc: "Show all bot configuration variables (Owner Only)",
     category: "system",
     react: "⚙️",
@@ -27,6 +27,10 @@ async (conn, mek, m, { from, quoted, reply, isCreator }) => {
 
         let envSettings = `
 ╭───『 *${config.BOT_NAME} CONFIG* 』───❏
+│
+│     -------------------------------------
+│           𝙳𝙰𝚁𝙺-𝙺𝙽𝙸𝙶𝙷𝚃-𝚇𝙼𝙳 SETTINGS 
+│     -------------------------------------
 │
 ├─❏ *🤖 BOT INFO*
 │  ├─∘ *Name:* ${config.BOT_NAME}
@@ -66,6 +70,68 @@ async (conn, mek, m, { from, quoted, reply, isCreator }) => {
 │  ├─∘ *Auto Record:* ${isEnabled(config.AUTO_RECORDING) ? "✅" : "❌"}
 │  ├─∘ *Anti-Del Path:* ${config.ANTI_DEL_PATH}
 │  └─∘ *Dev Number:* ${config.DEV}
+│
+│-----------------------------------
+│
+├─❏ *⚙️ CHANGE SETTINGS*
+│
+├─❏ 🔧 *1. Mode*
+│       - Current Status: ${config.MODE || "public"}
+│       - Usage: ${config.PREFIX}mode private/public
+│
+├─❏ 🎯 *2. Auto Typing*
+│       - Current Status: ${config.AUTO_TYPING || "off"}
+│       - Usage: ${config.PREFIX}autotyping on/off
+│
+├─❏ 🌐 *3. Always Online*
+│       - Current Status: ${config.ALWAYS_ONLINE || "off"}
+│       - Usage: ${config.PREFIX}alwaysonline on/off
+│
+├─❏ 🎙️ *4. Auto Recording*
+│       - Current Status: ${config.AUTO_RECORDING || "off"}
+│       - Usage: ${config.PREFIX}autorecording on/off
+│
+├─❏ 📖 *5. Auto Read Status*
+│       - Current Status: ${config.AUTO_STATUS_REACT || "off"}
+│       - Usage: ${config.PREFIX}autoreadstatus on/off
+│
+├─❏ 🚫 *6. Anti Bad Word*
+│       - Current Status: ${config.ANTI_BAD_WORD || "off"}
+│       - Usage: ${config.PREFIX}antibad on/off
+│
+├─❏ 🗑️ *7. Anti Delete*
+│       - Current Status: ${config.ANTI_BAD_WORD || "off"}
+│       - Usage: ${config.PREFIX}antidelete on/off
+│
+├─❏ 🖼️ *8. Auto Sticker*
+│       - Current Status: ${config.AUTO_STICKER || "off"}
+│       - Usage: ${config.PREFIX}autosticker on/off
+│
+├─❏ 💬 *9. Auto Reply*
+│       - Current Status: ${config.AUTO_REPLY || "off"}
+│       - Usage: ${config.PREFIX}autoreply on/off
+│
+├─❏ ❤️ *10. Auto React*
+│       - Current Status: ${config.AUTO_REACT || "off"}
+│       - Usage: ${config.PREFIX}autoreact on/off
+│
+├─❏ 📢 *11. Status Reply*
+│       - Current Status: ${config.AUTO_STATUS_REPLY || "off"}
+│       - Usage: ${config.PREFIX}autostatusreply on/off
+│
+├─❏ 🔗 *12. Anti Link*
+│       - Current Status: ${config.ANTI_LINK || "off"}
+│       - Usage: ${config.PREFIX}antilink on/off
+│
+├─❏ 💖 *13. Heart React*
+│       - Current Status: ${config.HEART_REACT || "off"}
+│       - Usage: ${config.PREFIX}heartreact on/off
+│
+├─❏ 🔧 *14. Set Prefix*
+│       - Current Prefix: ${config.PREFIX || "."}
+│       - Usage: ${config.PREFIX}setprefix <new_prefix>
+│
+├─∘ 📌 *Note*: Replace "on/off" with the desired state to enable or disable a feature.
 │
 ╰───『 *${config.DESCRIPTION}* 』───❏
 `;
