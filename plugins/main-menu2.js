@@ -32,28 +32,40 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ╭──·๏[📥 *ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ*📥]
 ┆ ◦ 
 ┆ ◦  🟦 facebook
+┆ ◦  🔵 fb2
 ┆ ◦  📁 mediafire
+┆ ◦  📁 mfire2
 ┆ ◦  🎵 tiktok
+┆ ◦  ▶️ tt2
 ┆ ◦  🐦 twitter
 ┆ ◦  📷 insta
+┆ ◦  📷 insta2
 ┆ ◦  📦 apk
+┆ ◦  📦 apk2
 ┆ ◦  🖼️ img
-┆ ◦  ▶️ tt2
 ┆ ◦  📌 pins
-┆ ◦  🔵 fb2
+┆ ◦  📌 pins2
 ┆ ◦  📍 pinterest
 ┆ ◦  🎶 spotify
 ┆ ◦  🎧 play
+┆ ◦  🎧 play2
 ┆ ◦  🎧 song
+┆ ◦  🎶 song2
 ┆ ◦  🔉 audio
 ┆ ◦  🎬 video
+┆ ◦  🎬 video1
+┆ ◦  🎬 video2
 ┆ ◦  🎵 ytmp3
 ┆ ◦  📹 ytmp4
-┆ ◦  🎶 song
 ┆ ◦  🎬 darama
 ┆ ◦  ☁️ gdrive
 ┆ ◦  🌐 ssweb
 ┆ ◦  🎵 tiks
+┆ ◦  
+┆ ◦  🔞 xvideo
+┆ ◦  🔞 xnxx
+┆ ◦  🔞 porn
+┆ ◦  🔞 xporn
 ┆ ◦ 
 ╰────┈⊷
 
@@ -66,6 +78,8 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ┆ ◦  ➕ add
 ┆ ◦  ➖ remove
 ┆ ◦  👢 kick
+┆ ◦  👢 out
+┆ ◦  🖼️ fullpo
 ┆ ◦  ⬆️ promote
 ┆ ◦  ⬇️ demote
 ┆ ◦  🚮 dismiss
@@ -77,7 +91,6 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ┆ ◦  ℹ️ ginfo
 ┆ ◦  ⏳ disappear on
 ┆ ◦  ⏳ disappear off
-┆ ◦  ⏳ disappear 7D,24H
 ┆ ◦  📝 allreq
 ┆ ◦  ✏️ updategname
 ┆ ◦  📝 updategdesc
@@ -88,6 +101,8 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ┆ ◦  🔊 unmute
 ┆ ◦  🔒 lockgc
 ┆ ◦  🔓 unlockgc
+┆ ◦  🚷 antilink kick
+┆ ◦  🚫 out country code
 ┆ ◦  📩 invite
 ┆ ◦  #️⃣ tag
 ┆ ◦  🏷️ hidetag
@@ -184,6 +199,8 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ┆ ◦  🆔 jid
 ┆ ◦  📖 bible
 ┆ ◦  📖 biblelist /blist
+┆ ◦  😇 setsudo
+┆ ◦  🙁 delsudo
 ┆ ◦ 
 ╰─┈⊷
 
@@ -197,6 +214,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ┆ ◦  🎭 character
 ┆ ◦  💌 pickup
 ┆ ◦  😆 joke
+┆ ◦  🎭 blur
 ┆ ◦  ❤️ hrt
 ┆ ◦  😊 hpy
 ┆ ◦  😔 syd
@@ -245,20 +263,16 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ╭──·๏[🤖 *ᴀɪ ᴍᴇɴᴜ*🤖]
 ┆ ◦ 
 ┆ ◦  🧠 ai
-┆ ◦  🤖 gpt3
-┆ ◦  🤖 gpt2
-┆ ◦  🤖 gptmini
+┆ ◦  🤖 bot
 ┆ ◦  🤖 gpt
-┆ ◦  🔵 meta
-┆ ◦  📦 blackbox
-┆ ◦  🌈 luma
-┆ ◦  🎧 dj
-┆ ◦  👑 dark
-┆ ◦  🧠 gpt4
-┆ ◦  🔍 bing
+┆ ◦  🤖 openai
+┆ ◦  🤖 chatgpt
+┆ ◦  👑 deepseek
+┆ ◦  🧠 seekai
 ┆ ◦  🎨 imagine
 ┆ ◦  🖼️ imagine2
-┆ ◦  🤖 copilot
+┆ ◦  🤖 gemini
+┆ ◦  🤖 gemini2
 ┆ ◦ 
 ╰─┈⊷
 
@@ -293,6 +307,9 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ┆ ◦  👗 maid
 ┆ ◦  👧 loli
 ┆ ◦  📰 animenews
+┆ ◦  👧 animegirl
+┆ ◦  👧 animegirl 1-5
+┆ ◦  👧 animegirl 5
 ┆ ◦  🦊 foxgirl
 ┆ ◦  🍥 naruto
 ┆ ◦ 
@@ -335,7 +352,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         await conn.sendMessage(
             from,
             {
-                image: { url: config.MENU_IMAGE_URL || 'https://files.catbox.moe/lbde9t.jpg' },
+                image: { url: config.MENU_IMAGE_URL || 'https://files.catbox.moe/brlkte.jpg' },
                 caption: dec,
                 contextInfo: {
                     mentionedJid: [m.sender],
