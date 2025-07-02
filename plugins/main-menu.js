@@ -29,17 +29,17 @@ cmd({
 ╰━━━━━━━━━━━━━━━┈⊷
 ╭━━〔 *Menu List* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈│1️⃣  📥 *Download Menu*
-┃◈│2️⃣  👥 *Group Menu*
-┃◈│3️⃣  😄 *Fun Menu*
-┃◈│4️⃣  👑 *Owner Menu*
-┃◈│5️⃣  🤖 *AI Menu*
-┃◈│6️⃣  🎎 *Anime Menu*
-┃◈│7️⃣  🔄 *Convert Menu*
-┃◈│8️⃣  📌 *Other Menu*
-┃◈│9️⃣  💞 *Reactions Menu*
-┃◈│🔟  🏠 *Main Menu*
-┃◈│1️⃣1️⃣ 🎨 *Logo Menu*
+┃◈│➊ 📥 *Download Menu*
+┃◈│➋ 👥 *Group Menu*
+┃◈│➌ 😄 *Fun Menu*
+┃◈│➍ 👑 *Owner Menu*
+┃◈│➎ 🤖 *AI Menu*
+┃◈│➏ 🎎 *Anime Menu*
+┃◈│➐ 🔄 *Convert Menu*
+┃◈│➑ 📌 *Other Menu*
+┃◈│➒ 💞 *Reactions Menu*
+┃◈│➓ 🏠 *Main Menu*
+┃◈│⓫ 🎨 *Logo Menu*
 ┃◈╰───────────┈⊷
 ╰──────────────┈⊷
 > ${config.DESCRIPTION}`;
@@ -174,6 +174,7 @@ cmd({
 ┃★│ • ginfo
 ┃★│ • disappear on
 ┃★│ • disappear off
+┃★│ • disappear 7h,24h
 ┃★│ • allreq
 ┃★│ • updategname
 ┃★│ • updategdesc
@@ -221,6 +222,12 @@ cmd({
 ┃★│ • hug
 ┃★│ • hifi
 ┃★│ • poke
+┃★│ • meme
+┃★│ • fact 
+┃★│ • quote
+┃★│ • truth
+┃★│ • dare
+┃★│ • war
 ┃★╰──────────────
 ┃★╭──────────────
 ┃★│ 😂 *Reactions*
@@ -245,6 +252,9 @@ cmd({
 ┃★│ ⚠️ *Restricted*
 ┃★│ • block @user
 ┃★│ • unblock @user
+┃★│ • broadcast
+┃★│ • join
+┃★│ • leave
 ┃★│ • fullpp [img]
 ┃★│ • setpp [img]
 ┃★│ • restart
@@ -252,21 +262,36 @@ cmd({
 ┃★│ • updatecmd
 ┃★│ • setsudo
 ┃★│ • delsudo
+┃★│ • setmyname
+┃★│ • setppall [img]
+┃★│ • getbio @tag
+┃★│ • getpp @tag
+┃★│ • privacy
+┃★│ • getprivacy
+┃★│ • groupsprivacy
+┃★│ • updatebio 
+┃★│ • blocklist
+┃★│ • chai
 ┃★╰──────────────
 ┃★╭──────────────
 ┃★│ ℹ️ *Info Tools*
 ┃★│ • gjid
 ┃★│ • jid @user
+┃★│ • id
 ┃★│ • menu
 ┃★│ • menu2
 ┃★│ • allmenu
+┃★│ • listcmd
 ┃★│ • bible
 ┃★│ • biblelist
 ┃★│ • owner
-┃★│ • vv / vv6
+┃★│ • vv / vv1
+┃★│ • vv3
 ┃★│ • repo
 ┃★│ • alive
 ┃★│ • ping
+┃★│ • ping2
+┃★│ • version
 ┃★╰──────────────
 ╰━━━━━━━━━━━━━━━┈⊷
 > ${config.DESCRIPTION}`,
@@ -319,9 +344,13 @@ cmd({
 ┃★╭──────────────
 ┃★│ 🎭 *Characters*
 ┃★│ • animenews
+┃★│ • animeboy
 ┃★│ • animegirl
-┃★│ • animegirl1-5
-┃★│ • anime1 5
+┃★│ • animegirl 1-5
+┃★│ • anime 1-5
+┃★│ • animequote
+┃★│ • animewall
+┃★│ • animememe
 ┃★│ • foxgirl
 ┃★│ • naruto
 ┃★│ • neko
@@ -340,6 +369,16 @@ cmd({
 ┃★│ • emojimix 😎+😂
 ┃★│ • take [name,text]
 ┃★│ • tomp3 [video]
+┃★│ • tomp4 [img]
+┃★│ • remini [img]
+┃★│ • removebg [img]
+┃★│ • imgjoke [img]
+┃★│ • invert [img]
+┃★│ • grey [img]
+┃★│ • blur [img]
+┃★│ • wanted [img]
+┃★│ • jail [img]
+┃★│ • tiny [img]
 ┃★╰──────────────
 ┃★╭──────────────
 ┃★│ 📝 *Text*
@@ -359,6 +398,15 @@ cmd({
 ┃★│ • readmore [test]
 ┃★│ • help [test]
 ┃★│ • support [test]
+┃★│ • urltoimg [url]
+┃★│ • recaption [test]
+┃★│ • caption [test]
+┃★│ • repost [test]
+┃★│ • story [test]
+┃★│ • states [test]
+┃★│ • vcf [test]
+┃★│ • ad [test]
+┃★│ • nokia [test]
 ┃★╰──────────────
 ╰━━━━━━━━━━━━━━━┈⊷
 > ${config.DESCRIPTION}`,
@@ -390,6 +438,7 @@ cmd({
 ┃★│ • logo
 ┃★│ • insult
 ┃★│ • save
+┃★│ • chr [test]
 ┃★╰──────────────
 ┃★╭──────────────
 ┃★│ 🔍 *Search*
@@ -456,11 +505,13 @@ cmd({
 ┃★╭──────────────
 ┃★│ ℹ️ *Bot Info*
 ┃★│ • ping
+┃★│ • ping2
 ┃★│ • speed
 ┃★│ • live
 ┃★│ • alive
 ┃★│ • runtime
 ┃★│ • uptime
+┃★│ • version
 ┃★│ • repo
 ┃★│ • owner
 ┃★╰──────────────
