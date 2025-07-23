@@ -13,7 +13,7 @@ const theme = {
 };
 
 cmd({
-  pattern: "movie2",
+  pattern: "pirate",
   desc: "Search Sinhala-subbed movies and download",
   category: "media",
   react: "🎬",
