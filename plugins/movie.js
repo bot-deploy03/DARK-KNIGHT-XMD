@@ -37,7 +37,7 @@ const frozenTheme = ravinduTheme;
 
 // Film search and download command
 cmd({
-  pattern: "film",
+  pattern: "film2",
   react: "🎬",
   desc: "Enjoy cinema from RAVINDU-MD treasury of films with Sinhala subtitles",
   category: "ice kingdom",
