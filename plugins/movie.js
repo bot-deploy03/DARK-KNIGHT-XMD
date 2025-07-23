@@ -1,5 +1,6 @@
 const { cmd } = require("../command");
 const axios = require("axios");
+const NodeCache = require('node-cache');
 
 cmd({
   pattern: "movie2",
