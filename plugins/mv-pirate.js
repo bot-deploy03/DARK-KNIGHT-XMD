@@ -78,11 +78,11 @@ cmd({
           return await conn.sendMessage(from, { text: theme.box("Invalid", "Invalid movie number.") }, { quoted: msg });
         }
 
-        const fetchURL = `https://suhas-bro-api.vercel.app/movie/pirate/movie?url=${encodeURIComponent(selected.link)}`;
+        const fetchURL = `https://suhas-bro-api.vercel.app/movie/sinhalasub/movie?url=${encodeURIComponent(selected.link)}`;
         const res = await axios.get(fetchURL);
 
         const result = res.data.result.data;
-        const links = result.usersdrive_dl || [];
+        const links = result.ddl_dl || [];
 
         if (!links.length) {
           return await conn.sendMessage(from, {
