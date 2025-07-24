@@ -30,7 +30,7 @@ cmd({
     let data = movieCache.get(cacheKey);
 
     if (!data) {
-      const url = `https://suhas-bro-api.vercel.app/movie/sinhalasub/search?text=${encodeURIComponent(q)}`;
+      const url = `https://www.dark-yasiya-api.site/movie/sinhalasub/search?text=${encodeURIComponent(q)}`;
       const response = await axios.get(url);
       data = response.data;
 
@@ -78,7 +78,7 @@ cmd({
           return await conn.sendMessage(from, { text: theme.box("Invalid", "Invalid movie number.") }, { quoted: msg });
         }
 
-        const fetchURL = `https://suhas-bro-api.vercel.app/movie/sinhalasub/movie?url=${encodeURIComponent(selected.link)}`;
+        const fetchURL = `https://www.dark-yasiya-api.site/movie/sinhalasub/movie?url=${encodeURIComponent(selected.link)}`;
         const res = await axios.get(fetchURL);
 
         const result = res.data.result.data;
