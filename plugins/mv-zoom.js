@@ -78,7 +78,7 @@ cmd({
           return await conn.sendMessage(from, { text: theme.box("Invalid", "Invalid movie number.") }, { quoted: msg });
         }
 
-        const fetchURL = `https://suhas-bro-api.vercel.app/movie/zoom/movie?url=${encodeURIComponent(selected.link)}`;
+        const fetchURL = `https://www.dark-yasiya-api.site/download/zoom?url=${encodeURIComponent(selected.link)}`;
         const res = await axios.get(fetchURL);
 
         const result = res.data.result.data;
