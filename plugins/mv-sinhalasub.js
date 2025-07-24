@@ -82,7 +82,7 @@ cmd({
         const res = await axios.get(fetchURL);
 
         const result = res.data.result.data;
-        const links = result.pixeldrain_dl || [];
+        const links = result.dl_links || [];
 
         if (!links.length) {
           return await conn.sendMessage(from, {
