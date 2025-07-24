@@ -13,7 +13,7 @@ const theme = {
 };
 
 cmd({
-  pattern: "firemovie",
+  pattern: "ytsmx",
   desc: "Search Sinhala-subbed movies and download",
   category: "media",
   react: "🎬",
@@ -30,7 +30,7 @@ cmd({
     let data = movieCache.get(cacheKey);
 
     if (!data) {
-      const url = `https://www.dark-yasiya-api.site/movie/firemovie/search?text=${encodeURIComponent(q)}`;
+      const url = `https://www.dark-yasiya-api.site/movie/ytsmx/search?text=${encodeURIComponent(q)}`;
       const response = await axios.get(url);
       data = response.data;
 
@@ -78,11 +78,11 @@ cmd({
           return await conn.sendMessage(from, { text: theme.box("Invalid", "Invalid movie number.") }, { quoted: msg });
         }
 
-        const fetchURL = `https://www.dark-yasiya-api.site/movie/firemovie/movie?url==${encodeURIComponent(selected.link)}`;
+        const fetchURL = `https://www.dark-yasiya-api.site/movie/ytsmx/movie?id=${encodeURIComponent(selected.link)}`;
         const res = await axios.get(fetchURL);
 
         const result = res.data.result.data;
-        const links = result.dl_links || [];
+        const links = result.url || [];
 
         if (!links.length) {
           return await conn.sendMessage(from, {
