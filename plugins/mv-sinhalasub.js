@@ -6,15 +6,15 @@ const NodeCache = require("node-cache");
 const movieCache = new NodeCache({ stdTTL: 60, checkperiod: 120 });
 
 const theme = {
-  header: "🔍 *WHITESHADOW CINEMA* 🔍\n━━━━━━━━━━━━━━━━━━\n",
-  footer: "\n━━━━━━━━━━━━━━━━━━\n⚡ Powered by WhiteShadow",
-  box: (title, content) => `📦 *${title}*\n\n${content}${theme.footer}`,
+  header: "🔍 *𝙳𝙰𝚁𝙺-𝙺𝙽𝙸𝙶𝙷𝚃-𝚇𝙼𝙳 cinema*\n━━━━━━━━━━━━━━━━━━\n",
+  footer: "\n━━━━━━━━━━━━━━━━━━\n⚡ Powered by 𝙳𝙰𝚁𝙺-𝙺𝙽𝙸𝙶𝙷𝚃-𝚇𝙼𝙳",
+  box: (title, content) => `📑 *${title}*\n\n${content}${theme.footer}`,
   emojis: ["🔸", "🎥", "📥", "🎞️", "📦", "⏬"]
 };
 
 cmd({
   pattern: "sinhalasub",
-  alias: ["sb2"],
+  alias: ["sb"],
   desc: "Search Sinhala-subbed movies and download",
   category: "media",
   react: "🎬",
@@ -22,7 +22,7 @@ cmd({
 }, async (conn, mek, m, { from, q, args }) => {
   if (!q) {
     return await conn.sendMessage(from, {
-      text: theme.box("Usage", "Use `.movie2 <movie name>` to search Sinhala-subbed films.\nEg: `.movie2 Fast X`"),
+      text: theme.box("Usage", "Use `.sinhalasub <movie name>` to search Sinhala-subbed films.\nEg: `.sinhalasub new`"),
     }, { quoted: mek });
   }
 
@@ -52,7 +52,7 @@ cmd({
     movieList.forEach(m => {
       replyText += `${theme.emojis[0]} ${m.number}. *${m.title}*\n`;
     });
-    replyText += `\n📩 Reply with a movie number to get download links\n🛑 Type *done* to cancel`;
+    replyText += `\n🔢 Reply with a movie number to get download links`;
 
     const sentMsg = await conn.sendMessage(from, { text: theme.box("Search Results", replyText) }, { quoted: mek });
 
@@ -98,7 +98,7 @@ cmd({
         linkText += `\n📥 Reply with quality number to get download\n🛑 Type *done* to cancel`;
 
         const downloadMsg = await conn.sendMessage(from, {
-          image: { url: result.image || "https://i.ibb.co/5Yb4VZy/snowflake.jpg" },
+          image: { url: result.image || "https://i.ibb.co/dw3rSBwN/6200.jpg" },
           caption: theme.box("Download Options", linkText)
         }, { quoted: msg });
 
@@ -128,7 +128,7 @@ cmd({
           document: { url: chosen.link },
           mimetype: "video/mp4",
           fileName: `${selected.title} - ${chosen.quality}.mp4`,
-          caption: theme.box("Here You Go!", `🎞️ ${selected.title}\n📦 Quality: ${chosen.quality}\n⏬ Size: ${chosen.size}`)
+          caption: theme.box("📽️ your movie!", `🎬 ${selected.title}\n Quality:⏳ ${chosen.quality}\n🗃️ Size: ${chosen.size}`)
         }, { quoted: msg });
       }
     };
@@ -136,7 +136,7 @@ cmd({
     conn.ev.on("messages.upsert", listener);
 
   } catch (err) {
-    console.log("movie2 error:", err.message);
+    console.log("movie error:", err.message);
     await conn.sendMessage(from, {
       text: theme.box("Error", `An error occurred!\n\n${err.message || "Try again later."}`)
     }, { quoted: mek });
@@ -154,7 +154,7 @@ cmd({
 }, async (conn, mek, m, { from, q, args }) => {
   if (!q) {
     return await conn.sendMessage(from, {
-      text: theme.box("Usage", "Use `.movie2 <movie name>` to search Sinhala-subbed films.\nEg: `.movie2 Fast X`"),
+      text: theme.box("Usage", "Use `.sinhalasub2 <movie name>` to search Sinhala-subbed films.\nEg: `.sinhalasub2 new`"),
     }, { quoted: mek });
   }
 
@@ -184,7 +184,7 @@ cmd({
     movieList.forEach(m => {
       replyText += `${theme.emojis[0]} ${m.number}. *${m.title}*\n`;
     });
-    replyText += `\n📩 Reply with a movie number to get download links\n🛑 Type *done* to cancel`;
+    replyText += `\n🔢 Reply with a movie number to get download links`;
 
     const sentMsg = await conn.sendMessage(from, { text: theme.box("Search Results", replyText) }, { quoted: mek });
 
@@ -227,10 +227,10 @@ cmd({
         links.forEach((l, i) => {
           linkText += `${theme.emojis[2]} ${i + 1}. *${l.quality}* (${l.size})\n`;
         });
-        linkText += `\n📥 Reply with quality number to get download\n🛑 Type *done* to cancel`;
+        linkText += `\n📥 Reply with quality number to get download`;
 
         const downloadMsg = await conn.sendMessage(from, {
-          image: { url: result.image || "https://i.ibb.co/5Yb4VZy/snowflake.jpg" },
+          image: { url: result.image || "https://i.ibb.co/dw3rSBwN/6200.jpg" },
           caption: theme.box("Download Options", linkText)
         }, { quoted: msg });
 
@@ -260,7 +260,7 @@ cmd({
           document: { url: chosen.link },
           mimetype: "video/mp4",
           fileName: `${selected.title} - ${chosen.quality}.mp4`,
-          caption: theme.box("Here You Go!", `🎞️ ${selected.title}\n📦 Quality: ${chosen.quality}\n⏬ Size: ${chosen.size}`)
+          caption: theme.box("your movie!", `🎬 ${selected.title}\n⏳ Quality: ${chosen.quality}\n🗃️ Size: ${chosen.size}`)
         }, { quoted: msg });
       }
     };
@@ -268,7 +268,7 @@ cmd({
     conn.ev.on("messages.upsert", listener);
 
   } catch (err) {
-    console.log("movie2 error:", err.message);
+    console.log("movie error:", err.message);
     await conn.sendMessage(from, {
       text: theme.box("Error", `An error occurred!\n\n${err.message || "Try again later."}`)
     }, { quoted: mek });
@@ -285,7 +285,7 @@ cmd({
 }, async (conn, mek, m, { from, q, args }) => {
   if (!q) {
     return await conn.sendMessage(from, {
-      text: theme.box("Usage", "Use `.movie2 <movie name>` to search Sinhala-subbed films.\nEg: `.movie2 Fast X`"),
+      text: theme.box("Usage", "Use `.pirate <movie name>` to search Sinhala-subbed films.\nEg: `.pirate new`"),
     }, { quoted: mek });
   }
 
@@ -315,7 +315,7 @@ cmd({
     movieList.forEach(m => {
       replyText += `${theme.emojis[0]} ${m.number}. *${m.title}*\n`;
     });
-    replyText += `\n📩 Reply with a movie number to get download links\n🛑 Type *done* to cancel`;
+    replyText += `\n🔢 Reply with a movie number to get download links`;
 
     const sentMsg = await conn.sendMessage(from, { text: theme.box("Search Results", replyText) }, { quoted: mek });
 
@@ -358,10 +358,10 @@ cmd({
         links.forEach((l, i) => {
           linkText += `${theme.emojis[2]} ${i + 1}. *${l.quality}* (${l.size})\n`;
         });
-        linkText += `\n📥 Reply with quality number to get download\n🛑 Type *done* to cancel`;
+        linkText += `\n📥 Reply with quality number to get download`;
 
         const downloadMsg = await conn.sendMessage(from, {
-          image: { url: result.image || "https://i.ibb.co/5Yb4VZy/snowflake.jpg" },
+          image: { url: result.image || "https://i.ibb.co/dw3rSBwN/6200.jpg" },
           caption: theme.box("Download Options", linkText)
         }, { quoted: msg });
 
@@ -391,7 +391,7 @@ cmd({
           document: { url: chosen.link },
           mimetype: "video/mp4",
           fileName: `${selected.title} - ${chosen.quality}.mp4`,
-          caption: theme.box("Here You Go!", `🎞️ ${selected.title}\n📦 Quality: ${chosen.quality}\n⏬ Size: ${chosen.size}`)
+          caption: theme.box("your movie!", `🎬 ${selected.title}\n⏳ Quality: ${chosen.quality}\n🗃️ Size: ${chosen.size}`)
         }, { quoted: msg });
       }
     };
@@ -399,7 +399,7 @@ cmd({
     conn.ev.on("messages.upsert", listener);
 
   } catch (err) {
-    console.log("movie2 error:", err.message);
+    console.log("movie error:", err.message);
     await conn.sendMessage(from, {
       text: theme.box("Error", `An error occurred!\n\n${err.message || "Try again later."}`)
     }, { quoted: mek });
@@ -416,7 +416,7 @@ cmd({
 }, async (conn, mek, m, { from, q, args }) => {
   if (!q) {
     return await conn.sendMessage(from, {
-      text: theme.box("Usage", "Use `.movie2 <movie name>` to search Sinhala-subbed films.\nEg: `.movie2 Fast X`"),
+      text: theme.box("Usage", "Use `.pirate2 <movie name>` to search Sinhala-subbed films.\nEg: `.pirate2 new`"),
     }, { quoted: mek });
   }
 
@@ -446,7 +446,7 @@ cmd({
     movieList.forEach(m => {
       replyText += `${theme.emojis[0]} ${m.number}. *${m.title}*\n`;
     });
-    replyText += `\n📩 Reply with a movie number to get download links\n🛑 Type *done* to cancel`;
+    replyText += `\n🔢 Reply with a movie number to get download links`;
 
     const sentMsg = await conn.sendMessage(from, { text: theme.box("Search Results", replyText) }, { quoted: mek });
 
@@ -489,10 +489,10 @@ cmd({
         links.forEach((l, i) => {
           linkText += `${theme.emojis[2]} ${i + 1}. *${l.quality}* (${l.size})\n`;
         });
-        linkText += `\n📥 Reply with quality number to get download\n🛑 Type *done* to cancel`;
+        linkText += `\n📥 Reply with quality number to get download`;
 
         const downloadMsg = await conn.sendMessage(from, {
-          image: { url: result.image || "https://i.ibb.co/5Yb4VZy/snowflake.jpg" },
+          image: { url: result.image || "https://i.ibb.co/dw3rSBwN/6200.jpg" },
           caption: theme.box("Download Options", linkText)
         }, { quoted: msg });
 
@@ -522,7 +522,7 @@ cmd({
           document: { url: chosen.link },
           mimetype: "video/mp4",
           fileName: `${selected.title} - ${chosen.quality}.mp4`,
-          caption: theme.box("Here You Go!", `🎞️ ${selected.title}\n📦 Quality: ${chosen.quality}\n⏬ Size: ${chosen.size}`)
+          caption: theme.box("your movie!", `🎬 ${selected.title}\n⏳ Quality: ${chosen.quality}\n🗃️ Size: ${chosen.size}`)
         }, { quoted: msg });
       }
     };
@@ -530,7 +530,7 @@ cmd({
     conn.ev.on("messages.upsert", listener);
 
   } catch (err) {
-    console.log("movie2 error:", err.message);
+    console.log("movie error:", err.message);
     await conn.sendMessage(from, {
       text: theme.box("Error", `An error occurred!\n\n${err.message || "Try again later."}`)
     }, { quoted: mek });
