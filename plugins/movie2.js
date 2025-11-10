@@ -395,13 +395,29 @@ cmd({
 
         let directLink = chosen.link;
 
+      try {
         if (directLink.includes("pixeldrain.com")) {
           const match = directLink.match(/\/([A-Za-z0-9]+)$/);
           if (match) directLink = `https://pixeldrain.com/api/file/${match[1]}`;
-        } else if (directLink.includes("drive.google.com/file/d/")) {
-          const match = directLink.match(/\/d\/([A-Za-z0-9_-]+)\//);
-          if (match) directLink = `https://drive.google.com/uc?export=download&id=${match[1]}`;
+          }
+        else if (directLink.includes("drive.google") || directLink.includes("drive.usercontent.google.com")) {
+          let normalizedUrl = directLink;
+          if (normalizedUrl.includes("drive.usercontent.google.com")) {
+              normalizedUrl = normalizedUrl.replace("drive.usercontent.google.com", "drive.google.com");
+          }
+
+          const gdriveResult = await fg.GDriveDl(normalizedUrl);
+
+           if (!gdriveResult || !gdriveResult.downloadUrl) {
+            throw new Error("Failed to get valid Google Drive download URL");
+          }
+
+          directLink = gdriveResult.downloadUrl;
         }
+      } catch (e) {
+        console.error("Drive link resolution failed:", e.message);
+        return conn.sendMessage(from, { text: `❌ *Drive link error:* ${e.message}` }, { quoted: msg });
+        }        
 
         const size = chosen.size.toLowerCase();
         const sizeGB = size.includes("gb") ? parseFloat(size) : parseFloat(size) / 1024;
